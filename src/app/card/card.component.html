@@ -1,0 +1,56 @@
+<div class="card">
+  <h2
+    [ngStyle]="{
+      color: title.length < 5 ? 'blue' : 'green'
+    }"
+  >
+    {{ title }}
+  </h2>
+  <pre> {{ jsonObj | json }}</pre>
+  <!-- Variant 1 -->
+  <p
+    class="card__text"
+    [ngClass]="{
+      green: textColor === 'green',
+      blue: textColor === 'blue',
+      red: textColor === 'red'
+    }"
+  >
+    {{ getInfo() }}
+  </p>
+  <!-- Variant 2 -->
+  <p
+    class="card__text"
+    [class.green]="textColor==='green'"
+    [class.blue]="textColor==='blue'"
+    [class.red]="textColor==='red'"
+  >
+    {{ getInfo() }}
+  </p>
+  <div class="card__color-buttons">
+    <button (click)="textColor = 'green'">Green</button>
+    <button (click)="textColor = 'blue'">Blue</button>
+    <button (click)="textColor = 'red'">Red</button>
+  </div>
+  <div class="card__img">
+    <img [src]="imgUrl" />
+  </div>
+  <div class="card__buttons">
+    <button [disabled]="disabled">Push Me</button>
+    <input type="text" [value]="title" (input)="inputHandler($event)" />
+    <input
+      type="text"
+      [value]="title"
+      #myInput
+      (input)="customInputHandler(myInput.value)"
+    />
+    <input type="text" [(ngModel)]="title" />
+    <div *ngIf="card">
+        <pre>{{ card | json }}</pre>
+        <p>Index: {{index}}</p>
+    </div>
+    <div>
+        <strong>{{cardDate | date:'full':null:'ru'}}</strong>
+    </div>
+  </div>
+</div>

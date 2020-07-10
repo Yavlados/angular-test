@@ -1,0 +1,43 @@
+.card {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-left: 1.2rem;
+    h2 {
+        margin-bottom: .5rem;
+    }
+
+    &__img {
+        display: flex;
+        justify-content: center;
+
+        img {
+            height: 250px;
+            padding-bottom: .5rem;
+        }
+    }
+
+    &__buttons {
+        padding: 0.5rem;
+
+        & *{
+            margin: 0.5rem;
+        }
+    }
+
+    &__text{
+        color: black;
+
+        &.green{
+            color: green;
+        }
+
+        &.red{
+            color: red;
+        }
+
+        &.blue{
+            color: blue;
+        }
+    }
+}
